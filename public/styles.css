@@ -2,6 +2,8 @@
 body{
     margin: 0;
     padding: 0;
+    background: linear-gradient(to right, #FFA17F, #00223E);
+    overflow-x: hidden; 
 }
 
 /* * - All the elements on the application. */
@@ -13,9 +15,33 @@ body{
 /****************************************************************************************************************************************************************************/
 /* |Main| */
 main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     border: 1px solid red;
-    padding-left: 100px;
+    /* padding-left: 100px; */
 } 
+
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |New Post Section| */
+.new-post-section{
+    display: flex;
+    justify-content: end;
+
+    /* border: 1px solid orange */
+    min-width: 1000px;
+}
+.new-post-section > button{
+    background-color: inherit;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.new-post-section > button > svg{
+    width: 50px;
+    fill: #e2e8f0;
+}
 
 /****************************************************************************************************************************************************************************/
 /****************************************************************************************************************************************************************************/
@@ -26,10 +52,114 @@ main{
     flex-direction: column;
     gap: 10px;
 
-    border: 1px solid black;
+    border: 1px solid orange;
     padding: 3px; 
-    max-width: 500px;
+    min-width: 1000px;
+    max-width: 1000px; 
 }
 .message-section > div{
     border: 1px solid red;
+    word-wrap: break-word;
 }
+
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |New Message Section (form.ejs)| */
+form{
+    border: 1px solid black;
+    padding: 10px;
+}
+form > div{
+    margin: 10px;
+}
+form > div  input{
+    display:block;
+}
+form > div textarea{
+    display: block;
+    resize: none;
+}
+
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |New Post Window| */
+.user-post-window{
+    position: absolute; 
+    top: 0;
+    right: -1000px; 
+    z-index: 1;
+    height: 100%;
+
+    border: 1px solid yellowgreen;
+    background-color: rgba(153, 205, 50, 0.377);
+    min-width: 1000px; 
+}
+.user-post-window > section:nth-child(1){ /* Close Window Section */
+    border: 1px solid black;
+}
+.user-post-window > section:nth-child(1) > svg{ /* Close window SVG */
+    width: 80px; 
+    fill:#ef4444;
+    cursor: pointer;
+}
+.open-animation{
+    display: block;
+
+    animation-name: openAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; 
+}
+@keyframes openAnimation{
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(-700px); 
+    }
+}
+.close-animation{
+    animation-name: closeAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes closeAnimation{
+    from{
+        transform: translateX(-700px); 
+    }
+    to{
+        transform: translateX(0px); 
+    }
+}
+.user-post-window > section:nth-child(2){ /* New Post Section */
+    /* display: flex;
+    flex-direction: column; */
+
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* hide - Will hide elements in the application. */
+.hide{
+    display: none; 
+    /* visibility: hidden; */
+}
+
+/* no-click - Will the prevent users from clicking on certain buttons during events. */
+.no-click{
+    pointer-events: none;
+}
+
+/* blur - Will blur the main body of the page except the 'User Post Window'. */
+/* .blur .blur > h1, .blur > main > :not(.user-post-window){
+    filter: blur(3px);
+    
+} */
+.blur{ 
+    filter: blur(3px); 
+}
+
+
