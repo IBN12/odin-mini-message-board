@@ -16,9 +16,7 @@ newMessageRouter.post("/", (req, res) => {
 
     console.log("Messages Object: ", messages); // Testing 
 
-    // Note: Won't need to redirect since 'New Post Window' will pop up on the page.
-    // User will just need to click the 'New Post Button' to open the window from the
-    // index template. 
+    // Note: We will wait for the redirect for 1sec to give the "userPostWindow" time to close. 
     setTimeout(() =>{
         res.redirect("/"); 
     }, 1000);
