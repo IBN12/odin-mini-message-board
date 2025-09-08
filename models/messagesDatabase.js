@@ -1,5 +1,5 @@
 // Mesasges Array - Will perform as the messages database.
-const messages = [
+export const messages = [
     {
         text: "Hi There!",
         user: "Amando",
@@ -10,6 +10,4 @@ const messages = [
         user: "Charles",
         added: new Date(), 
     }
-]
-
-module.exports = messages;
+];

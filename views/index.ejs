@@ -5,11 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
         <link rel="stylesheet" href="/styles.css">
-        <script src="javascript/newPost.js" defer></script>
+        <script type="module" src="javascript/newPost.js" defer></script>
     </head>
 
     <body>
         <h1><%= title %></h1>
+        
+        <!-- The Main Navigation Section -->
+        <nav>
+            <a href="/new">New</a>
+        </nav>
         <hr />
         
         <!-- The Main User Section -->
@@ -25,9 +30,9 @@
             <section class="message-section">
                 <% messages.forEach((message) => { %>
                     <div>
-                        <div>User: <%= message.user %></div>
-                        <div>Message: <%= message.text %></div>
-                        <div>Date: <%= message.added %></div>
+                        <div><b>User:</b> <%= message.username %></div>
+                        <div><b>Message:</b> <%= message.message %></div>
+                        <div><b>Date:</b> <%= message.added %></div>
                     </div>
                     <br />
                 <% }) %>
@@ -43,15 +48,15 @@
             </section>
 
             <section>
-                <form method="POST" action="/new">
+                <form method="POST" action="/new" autocomplete="off">
                     <div>
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" />
+                        <input type="text" id="name" name="name" maxlength="20"  placeholder="Enter name here" required />
                     </div>
     
                     <div>
                         <label for="message">Message</label>
-                        <textarea id="msg" name="message" cols="60" rows="10" maxlength="300" placeholder="Enter a message here"></textarea>
+                        <textarea id="msg" name="message" cols="60" rows="10" maxlength="300" placeholder="Enter a message here" required></textarea>
                     </div>
     
                     <div>

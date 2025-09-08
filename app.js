@@ -1,14 +1,19 @@
-const express = require("express"); 
-const path = require("node:path");
+import express from "express";
+import path from "node:path"; 
 
-const newMessageRouter = require('./routes/new');
+import newMessageRouter from "./routes/new.js";
 
-const messages = require('./models/messagesDatabase'); 
+import { messages } from "./models/messagesDatabase.js";
+
+import usersPostController from "./controllers/usersPostController.js";
 
 const app = express(); 
 const PORT = 8000;
 
 /** |Project: Mini Message Board|
+ * 
+ * --------------------------------------------------------------------------------------
+ * @ Stage 1: Project: Mini Message Board: 
  * 1. Set up a basic Express app by installing 'Express' and 'EJS'. Set up a basic
  * index route and run your server. Create the required folders and files as
  * discussed in the previous lessons. 
@@ -56,27 +61,38 @@ const PORT = 8000;
  * 10. At this point, you should be able to visit '/new' (it might be a good idea to add
  * a link to that route on your index page), fill out the form, submit it and then
  * see it show up on the index page!
+ * 
+ * --------------------------------------------------------------------------------------
+ * @ Stage 2: Using PostgreSQL: 
+ * In our previous Mini Message Board project, we implemented ephemeral messages using
+ * an array i.e. the messages would reset when the server restarted. We want data
+ * persistence. Go back to this project and implement it with a PostgreSQL 'db' and
+ * 'pg'(pg => node-postgres)
+ *      1. Set up the db (database) => Check
+ *      2. Set up pg (node-postgres) => Check
+ * - Deploy a new db on a hosting service you choose, and obtain its connection information.
+ * - Create a messages table, populate it with data if you wish. This should be done via a script.
+ * - Add the necessary environment variables, create a pool, and implement the required db functions. 
  */
 
 /** |Review Notes|
- * => Reusable Templates: 
+ * 
  */
 
 // Serving Static Assets:
-const assetsPath = path.join(__dirname, "public"); 
-app.use(express.static(assetsPath)); 
+// const assetsPath = path.join(__dirname, "public"); 
+// app.use(express.static(assetsPath));
+app.use(express.static("public")); 
 
 // Enables the application to parse data from the POST method:
 app.use(express.urlencoded({ extended: true }));
 
 // Locating our views for folder for EJS. 
-app.set("views", path.join(__dirname, "views"));
+// app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Index Route: 
-app.get("/", (req, res) =>{
-    res.render("index", { title: "Mini Messageboard", messages: messages });
-});
+app.get("/", usersPostController.userPostControllerGet); 
 
 // Standard routes for each category:
 app.use("/new", newMessageRouter); // New Message Router

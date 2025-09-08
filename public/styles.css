@@ -2,13 +2,54 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #FFA17F, #00223E);
+    background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
     overflow-x: hidden; 
+    color: #e2e8f0;
 }
 
 /* * - All the elements on the application. */
 *{
     box-sizing: border-box;
+}
+
+/* |Fonts| */
+/* Font-0 - Good Timing font. */
+@font-face {
+    font-family: good-timing;
+    src: url("./fonts/good_timing/good\ timing\ bd.otf");
+}
+
+/* Font-1 - Creato Display font. */
+@font-face {
+    font-family: creato-display;
+    src: url("./fonts/creato-display/creato_display/CreatoDisplay-Regular.otf");
+}
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |Title| */
+h1{
+    font-family: good-timing, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 35px;
+    letter-spacing: 3px; 
+    padding-left: 20px;
+    transition: font-size 0.3s ease; 
+}
+
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |Navigation| */
+nav{
+    /* border: 1px solid black; */
+    padding-left: 20px; 
+}
+nav > a{
+    color: #e2e8f0;
+    font-size: 20px;
+    text-decoration: none;
+}
+nav > a:hover{
+    text-decoration: underline;
+    color:#0284c7;
 }
 
 /****************************************************************************************************************************************************************************/
@@ -19,19 +60,21 @@ main{
     flex-direction: column;
     align-items: center;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* padding-left: 100px; */
-} 
+}
 
 /****************************************************************************************************************************************************************************/
 /****************************************************************************************************************************************************************************/
-/* |New Post Section| */
+/* |New Post Section (Plus Button)| */
 .new-post-section{
     display: flex;
     justify-content: end;
 
-    /* border: 1px solid orange */
+    /* border: 1px solid orange; */
     min-width: 1000px;
+    max-width: 1000px;
+    transition: min-width 1s ease; 
 }
 .new-post-section > button{
     background-color: inherit;
@@ -41,6 +84,9 @@ main{
 .new-post-section > button > svg{
     width: 50px;
     fill: #e2e8f0;
+}
+.new-post-section > button > svg:hover{
+    fill:#0284c7;
 }
 
 /****************************************************************************************************************************************************************************/
@@ -52,37 +98,94 @@ main{
     flex-direction: column;
     gap: 10px;
 
-    border: 1px solid orange;
-    padding: 3px; 
+    /* border: 1px solid orange; */
+    padding: 10px; 
     min-width: 1000px;
     max-width: 1000px; 
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    transition: min-width 1s ease; 
 }
 .message-section > div{
-    border: 1px solid red;
-    word-wrap: break-word;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
 
-/****************************************************************************************************************************************************************************/
-/****************************************************************************************************************************************************************************/
-/* |New Message Section (form.ejs)| */
-form{
     border: 1px solid black;
-    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.26);
+    border-radius: 10px; 
+    word-wrap: break-word;
+    padding: 5px; 
 }
-form > div{
-    margin: 10px;
-}
-form > div  input{
-    display:block;
-}
-form > div textarea{
-    display: block;
-    resize: none;
+.message-section > div > div > b{
+    font-size: 17px;
 }
 
 /****************************************************************************************************************************************************************************/
 /****************************************************************************************************************************************************************************/
-/* |New Post Window| */
+/* |New Message Page Section (form.ejs)| */
+.new-message-page{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+
+    /* border: 1px solid black; */
+    padding: 10px; 
+}
+.new-message-page > div{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    /* border: 1px solid orange; */
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.new-message-page > div > label{
+    display: block;
+}
+.new-message-page > div > input{
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px; 
+    border: 1px solid black; 
+    background-color: rgba(0, 0, 0, 0.26); 
+    color: #e2e8f0;
+    width: 300px; 
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 15px; 
+    transition: width 1s ease; 
+}
+.new-message-page > div > textarea{
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px; 
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.26);
+    color: #e2e8f0;
+    width: 500px;
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 15px; 
+    resize: none; 
+    transition: width 1s ease; 
+}
+.new-message-page > div > button[type="submit"]{
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid black; 
+    background-color: rgba(0, 0, 0, 0.26);
+    color: #e2e8f0;
+    cursor: pointer; 
+    padding: 5px;
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 15px;
+}
+.new-message-page > div > button[type="submit"]:hover{
+    background-color:#0284c7;
+    border: 1px solid #0284c7;
+}
+
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |New Post Window (index.ejs)| */
 .user-post-window{
     position: absolute; 
     top: 0;
@@ -90,17 +193,22 @@ form > div textarea{
     z-index: 1;
     height: 100%;
 
-    border: 1px solid yellowgreen;
-    background-color: rgba(153, 205, 50, 0.377);
+    /* border: 1px solid black; */
+    background: linear-gradient(to right, #0f20277c, #203a4380, #2c536480);
     min-width: 1000px; 
+    padding: 10px; 
+    transition: min-width 1s ease; 
 }
 .user-post-window > section:nth-child(1){ /* Close Window Section */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .user-post-window > section:nth-child(1) > svg{ /* Close window SVG */
-    width: 80px; 
-    fill:#ef4444;
+    width: 60px; 
+    fill: #e2e8f0;
     cursor: pointer;
+}
+.user-post-window > section:nth-child(1) > svg:hover{
+    fill:#0284c7
 }
 .open-animation{
     display: block;
@@ -133,11 +241,59 @@ form > div textarea{
     }
 }
 .user-post-window > section:nth-child(2){ /* New Post Section */
-    /* display: flex;
-    flex-direction: column; */
-
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-top: 20px;
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.user-post-window > section:nth-child(2) > form{
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+.user-post-window > section:nth-child(2) > form > div{
+    display: flex;
+    flex-direction: column; 
+    gap: 5px; 
+}
+.user-post-window > section:nth-child(2) > form > div > input{
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px; 
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.26);
+    color: #e2e8f0;
+    width: 300px;
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 15px;
+    transition: width 1s ease;
+} 
+.user-post-window > section:nth-child(2) > form > div > textarea{
+    padding: 5px;
+    padding-left: 10px; 
+    border-radius: 10px;
+    border: 1px solid black; 
+    background-color: rgba(0, 0, 0, 0.26);
+    color: #e2e8f0;
+    width: 500px;
+    font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 15px; 
+    transition: width 1s ease;
+    resize: none;  
+}
+.user-post-window > section:nth-child(2) > form > div > button[type="submit"]{
+    width: 150px; 
+    border-radius: 10px; 
+    border: 1px solid black; 
+    background-color: rgba(0, 0, 0, 0.26);
+    color: #e2e8f0;
+    cursor: pointer; 
+    padding: 5px;
+    font-family: inherit;
+    font-size: 15px;  
+}
+.user-post-window > section:nth-child(2) > form > div > button[type="submit"]:hover{
+    background-color: #0284c7;
+    border: 1px solid #0284c7;
 }
 
 /****************************************************************************************************************************************************************************/
@@ -162,4 +318,226 @@ form > div textarea{
     filter: blur(3px); 
 }
 
+/****************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+/* |Desktop Minimization and Mobile Viewports| */
 
+/* Media-0 - For Desktop minimization. */
+@media only screen and (max-width: 1100px){
+    /* |Title| */
+    h1{
+        font-family: good-timing, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 20px;  
+        letter-spacing: 3px; 
+        padding-left: 20px;
+        transition: font-size 0.3s ease; 
+    }
+    
+    /* |Message Section| */
+    .message-section{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        /* border: 1px solid orange; */
+        padding: 10px; 
+        min-width: 500px;
+        max-width: 1000px; 
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        transition: min-width 1s ease; 
+    }
+
+    /* |New Post Section| */
+    .new-post-section{
+        display: flex;
+        justify-content: end;
+
+        /* border: 1px solid orange; */
+        min-width: 560px;
+        max-width: 1000px;
+        transition: min-width 1s ease;
+    }
+
+    /* |New Post Window (index.ejs)| */
+    .user-post-window{
+        position: absolute; 
+        top: 0;
+        right: -1200px; 
+        z-index: 1;
+        height: 100%;
+
+        /* border: 1px solid black; */
+        background: linear-gradient(to right, #0f20277c, #203a4380, #2c536480);
+        min-width: 100%; 
+        padding: 10px; 
+        transition: min-width 1s ease; 
+    }
+    @keyframes openAnimation{
+        from{
+            transform: translateX(0px);
+        }
+        to{
+            transform: translateX(-1200px); 
+        }
+    }
+    @keyframes closeAnimation{
+        from{
+            transform: translateX(-1200px); 
+        }
+        to{
+            transform: translateX(0px); 
+        }
+    }
+}
+
+/* Media-1 - Mobile Viewports. */
+@media only screen and (max-width: 600px){
+    /* |Message Section| */
+    .message-section{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        /* border: 1px solid orange; */
+        padding: 10px; 
+        min-width: 100%;
+        max-width: 1000px; 
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        transition: min-width 1s ease; 
+    }
+
+    /* |New Post Section (Plus Button)| */
+    .new-post-section{
+        display: flex;
+        justify-content: end;
+
+        /* border: 1px solid orange; */
+        min-width: 100%;
+        max-width: 1000px;
+        transition: min-width 1s ease;
+    }
+
+    /* |New Post Window (index.ejs)| */
+    .user-post-window{
+        position: absolute; 
+        top: 0;
+        right: -1200px;
+        z-index: 1;
+        height: 100%;
+
+        /* border: 1px solid black; */
+        background: linear-gradient(to right, #0f20277c, #203a4380, #2c536480);
+        min-width: 100%;
+        padding: 10px; 
+        transition: min-width 1s ease; 
+    }
+    .user-post-window > section:nth-child(2) > form > div > input{
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 10px; 
+        border: 1px solid black;
+        background-color: rgba(0, 0, 0, 0.26);
+        color: #e2e8f0;
+        width: 300px;
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 15px;
+        transition: width 1s ease; 
+    } 
+    .user-post-window > section:nth-child(2) > form > div > textarea{
+        padding: 5px;
+        padding-left: 10px; 
+        border-radius: 10px;
+        border: 1px solid black; 
+        background-color: rgba(0, 0, 0, 0.26);
+        color: #e2e8f0;
+        width: 350px;
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 15px; 
+        transition: width 1s ease; 
+    }
+    @keyframes openAnimation{
+        from{
+            transform: translateX(0px);
+        }
+        to{
+            transform: translateX(-1200px); 
+        }
+    }
+    @keyframes closeAnimation{
+        from{
+            transform: translateX(-1200px); 
+        }
+        to{
+            transform: translateX(0px); 
+        }
+    }
+
+    /* |New Message Page Section (form.ejs)| */ 
+    .new-message-page > div > input{
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 10px; 
+        border: 1px solid black; 
+        background-color: rgba(0, 0, 0, 0.26); 
+        color: #e2e8f0;
+        width: 100%; 
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 15px; 
+        transition: width 1s ease; 
+    }
+    .new-message-page > div > textarea{
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 10px; 
+        border: 1px solid black;
+        background-color: rgba(0, 0, 0, 0.26);
+        color: #e2e8f0;
+        width: 100%;
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 15px; 
+        resize: none; 
+        transition: width 1s ease; 
+    }
+}
+
+@media only screen and (max-width: 400px){
+    /* |New Post Window (index.ejs)|*/
+    .user-post-window{
+        position: absolute; 
+        top: 0;
+        right: -1200px;
+        z-index: 1;
+        height: 100%;
+
+        /* border: 1px solid black; */
+        background: linear-gradient(to right, #0f20277c, #203a4380, #2c536480);
+        min-width: 100%;
+        padding: 10px; 
+        transition: min-width 1s ease; 
+    }
+    .user-post-window > section:nth-child(2) > form > div > input{ /* Name Input */
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 10px; 
+        border: 1px solid black;
+        background-color: rgba(0, 0, 0, 0.26);
+        color: #e2e8f0;
+        width: 250px;
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 15px;
+        transition: width 1s ease; 
+    } 
+    .user-post-window > section:nth-child(2) > form > div > textarea{
+        padding: 5px;
+        padding-left: 10px; 
+        border-radius: 10px;
+        border: 1px solid black; 
+        background-color: rgba(0, 0, 0, 0.26);
+        color: #e2e8f0;
+        width: 300px;
+        font-family: creato-display, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 15px; 
+        transition: width 1s ease; 
+    }
+
+}
