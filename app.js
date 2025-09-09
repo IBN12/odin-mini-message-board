@@ -8,7 +8,7 @@ import { messages } from "./models/messagesDatabase.js";
 import usersPostController from "./controllers/usersPostController.js";
 
 const app = express(); 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 /** |Project: Mini Message Board|
  * 
