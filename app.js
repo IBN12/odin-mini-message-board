@@ -1,6 +1,6 @@
 import express from "express";
 import path from "node:path"; 
-import 'dotenv/config';
+
 
 import newMessageRouter from "./routes/new.js";
 
